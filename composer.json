@@ -1,0 +1,59 @@
+{
+    "name": "huangdijia/laravel-hprose",
+    "description": "My awesome package",
+    "keywords": [
+        "huangdijia",
+        "laravel-hprose"
+    ],
+    "homepage": "https://github.com/huangdijia/laravel-hprose",
+    "license": "MIT",
+    "type": "library",
+    "authors": [{
+        "name": "author",
+        "email": "author@domain.com",
+        "role": "Developer"
+    }],
+    "support": {
+        "issues": "https://github.com/huangdijia/laravel-hprose/issues",
+        "source": "https://github.com/huangdijia/laravel-hprose"
+    },
+    "require": {
+        "php": "^7.0",
+        "hprose/hprose": ">=2.0.0",
+        "illuminate/support": "^5.8|^6.0|^7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Huangdijia\\Hprose\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Huangdijia\\Hprose\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Huangdijia\\Hprose\\HproseServiceProvider"
+            ],
+            "aliases": {
+                "HproseServer": "Huangdijia\\Hprose\\Facades\\Server",
+                "HproseClient": "Huangdijia\\Hprose\\Facades\\Client",
+                "HproseRoute": "Huangdijia\\Hprose\\Facades\\Route"
+            }
+        }
+    }
+}
