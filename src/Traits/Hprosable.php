@@ -16,6 +16,10 @@ trait Hprosable
             ->start();
     }
 
+    /**
+     * Get methods
+     * @return array
+     */
     protected function getMethods()
     {
         if (isset($this->allowMethods) && is_array($this->allowMethods)) {
