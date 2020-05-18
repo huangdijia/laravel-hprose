@@ -37,7 +37,9 @@ class HproseServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'hprose');
+        if (is_file(__DIR__ . '/../config/config.php')) {
+            $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'hprose');
+        }
 
         // Register the main class to use with the facade
         $this->app->singleton('hprose.router', function ($app) {
@@ -56,7 +58,7 @@ class HproseServiceProvider extends ServiceProvider
      */
     public function registerRoutes()
     {
-        Route::any($this->app['config']->get('hprose.server.modes.http.path', 'hprose'), function() {
+        Route::any($this->app['config']->get('hprose.server.modes.http.path', 'hprose'), function () {
             Facades\Server::server('http')->setRouter(Facades\Route::getRouter())->start();
         });
     }
