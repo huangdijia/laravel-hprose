@@ -30,6 +30,7 @@ class HproseServiceProvider extends ServiceProvider
             // Registering package commands.
             $this->commands([
                 Console\StartCommand::class,
+                Console\InstallCommand::class,
             ]);
         }
     }

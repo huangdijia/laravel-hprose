@@ -20,6 +20,10 @@ class InstallCommand extends Command
             '--provider' => HproseServiceProvider::class,
             '--tag'      => "config",
         ]);
+        $this->call('vendor:publish', [
+            '--provider' => HproseServiceProvider::class,
+            '--tag'      => "routes",
+        ]);
 
         $this->info('Installed Package');
     }
