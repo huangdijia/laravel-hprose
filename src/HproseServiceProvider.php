@@ -12,7 +12,10 @@ class HproseServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom($this->app->basePath('routes/hprose.php'));
+        if (is_file($this->app->basePath('routes/hprose.php'))) {
+            $this->loadRoutesFrom($this->app->basePath('routes/hprose.php'));
+        }
+
         $this->registerRoutes();
 
         if ($this->app->runningInConsole()) {
